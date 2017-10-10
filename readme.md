@@ -5,10 +5,8 @@
 
 ## Overview
 
-Simple starter C++ project with:
-
-- cmake
-- googletest
+A C++ project to segment a know box and return its centroid position. This project was implemented to learn about the software evolution process as part of the course ENPM808X at University of Maryland. Specifically, this project is being implemented in a one week sprint following SIP (Solo Iterative Process). The details about my experiments with this methodology is shown here at this link - 
+[SIP](https://docs.google.com/spreadsheets/d/1hU2-KZ__otXOmWfRZpa-UvZP8Up15Qzi-F7m8GVSgRQ/edit?usp=sharing)
 
 ## Standard install via command-line
 ```
@@ -22,14 +20,8 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## Building for code coverage (for assignments beginning in Week 4)
-```
-sudo apt-get install lcov
-cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
-make
-make code_coverage
-```
-This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
+## Dependencies
+1. OpenCV 3.3.0. This can be downloaded by following the steps [here](https://www.learnopencv.com/install-opencv3-on-ubuntu/).
 
 ## Working with Eclipse IDE ##
 
@@ -95,32 +87,3 @@ debugger window.
 7. Press Terminate icon to terminate debugging and press C/C++ icon to switch back to C/C++ 
 perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 
-
-## Plugins
-
-- CppChEclipse
-
-    To install and run cppcheck in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> cppcheclipse.
-    Set cppcheck binary path to "/usr/bin/cppcheck".
-
-    2. To run CPPCheck on a project, right click on the project name in the Project Explorer 
-    and choose cppcheck -> Run cppcheck.
-
-
-- Google C++ Sytle
-
-    To include and use Google C++ Style formatter in Eclipse
-
-    1. In Eclipse, go to Window -> Preferences -> C/C++ -> Code Style -> Formatter. 
-    Import [eclipse-cpp-google-style][reference-id-for-eclipse-cpp-google-style] and apply.
-
-    2. To use Google C++ style formatter, right click on the source code or folder in 
-    Project Explorer and choose Source -> Format
-
-[reference-id-for-eclipse-cpp-google-style]: https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-cpp-google-style.xml
-
-- Git
-
-    It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you're interested in this, try it out yourself and contact me on Canvas.
