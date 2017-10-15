@@ -30,4 +30,4 @@ add_subdirectory(app)
 add_subdirectory(test)
 add_subdirectory(vendor/googletest/googletest)
 
-# file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
