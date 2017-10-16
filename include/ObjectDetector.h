@@ -19,9 +19,19 @@ class ObjectDetector {
    * @param int, y co-ordinate of the centre of the object
    * @return bool, to indicate whether success was returned
    */
-  bool detect(cv::Mat& imageScene, int&, int&)= 0;
-  // void setObjectKeypoints(std::string filename);
+  virtual bool detect(cv::Mat& imageScene, int&, int&)= 0;
+  /**
+   * @brief virtual member function to set keypoints of the object to be detected
+   * @param filename of the object to be detected
+   */
+  virtual void setObjectKeypoints(std::string filename) {
+    return;
 
+  }
+
+  virtual ~ObjectDetector() {
+
+  }
  protected:
   /**
    * @brief protected member function to calculate the centroid out of the bounding box corners
