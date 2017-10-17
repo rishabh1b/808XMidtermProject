@@ -19,6 +19,7 @@ VisionManager::VisionManager(bool showMatches, bool saveImages)
   auto imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
   // objDetector = new SiftDetector(imgObject);
   objDetector = std::make_unique<SiftDetector>(imgObject, showMatches, saveImages);
+  framesGenerator.setFilename("data/demoshort.mp4");
   this->showMatches = showMatches;
   this->saveImages = saveImages;
 }
@@ -40,7 +41,7 @@ bool VisionManager::initDetection() {
   }
   if (saveImages) {
     outputter.writeCentroidValues(centroidPositions);
-    // outputter.writeFrames(objDetector->processedImages);
+    outputter.writeFrames(objDetector->processedImages);
     outputter.writeOutputs(objDetector->processedImages, centroidPositions);
   }
   flag = true;

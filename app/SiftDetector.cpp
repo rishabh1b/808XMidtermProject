@@ -104,18 +104,7 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
 
   // convert grayscale to color image
   cv::cvtColor(imgScene, currentEditedImage, CV_GRAY2RGB);
-//  line(currentEditedImage, sceneCorners[0] + cv::Point2f(imgObject.cols, 0),
-//       sceneCorners[1] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-//       4);
-//  line(currentEditedImage, sceneCorners[1] + cv::Point2f(imgObject.cols, 0),
-//       sceneCorners[2] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-//       4);
-//  line(currentEditedImage, sceneCorners[2] + cv::Point2f(imgObject.cols, 0),
-//       sceneCorners[3] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-//       4);
-//  line(currentEditedImage, sceneCorners[3] + cv::Point2f(imgObject.cols, 0),
-//       sceneCorners[0] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-//       4);
+  // Draw bounding box on top of image
   line(currentEditedImage, sceneCorners[0], sceneCorners[1],
        cv::Scalar(0, 255, 0), 4);
   line(currentEditedImage, sceneCorners[1], sceneCorners[2],

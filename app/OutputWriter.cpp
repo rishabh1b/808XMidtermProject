@@ -56,13 +56,15 @@ bool OutputWriter::writeOutputs(
     std::string centroid = "(" + xstr + "," + ystr + ")";
     cv::Point org(x, y);
     cv::putText(frame, centroid, org, cv::FONT_HERSHEY_COMPLEX, 0.5,
-                cv::Scalar(0, 0, 255), 5, 8);
+                cv::Scalar(0, 0, 255), 1, 8);
 
     std::stringstream outputFilename;
     outputFilename << "../Outputs/detection" << counter <<  ".jpg";
-    cv::namedWindow("image", cv::WINDOW_AUTOSIZE);
-    cv::imshow("image", frame);
-    cv::waitKey(30);
+
+    // For Testing
+    // cv::namedWindow("image", cv::WINDOW_AUTOSIZE);
+    // cv::imshow("image", frame);
+    // cv::waitKey(30);
     imwrite(outputFilename.str(), frame);
     counter++;
 

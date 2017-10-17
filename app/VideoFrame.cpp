@@ -19,8 +19,11 @@ cv::Mat VideoFrame::nextFrame() {
 }
 
 void VideoFrame::setFilename(std::string filename) {
-  this->vidcapture.release();
+   this->vidcapture.release();
+  // Reinitialize
+  vidcapture = cv::VideoCapture();
   this->filename = filename;
+  vidcapture.open(filename);
 
 }
 
