@@ -24,7 +24,7 @@ TEST(DetectionTest, testpipeline) {
 TEST(DetectionTest, falsePositive) {
   std::string filename = "data/cornflakesCropped.png";
   auto imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
-  auto falseImage = cv::imread("data/lenna_false_positive.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+  auto falseImage = cv::imread("data/bottle_false_positive.jpg", CV_LOAD_IMAGE_GRAYSCALE);
   int x, y;
   std::unique_ptr<ObjectDetector> detector = std::make_unique<SiftDetector>(imgObject, false, false);
   EXPECT_FALSE(detector->detect(falseImage, x, y));

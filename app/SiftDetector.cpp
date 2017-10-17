@@ -22,7 +22,7 @@ void SiftDetector::setObjectKeypoints(cv::Mat imgObject) {
   siftfeature->compute(imgObject, objKeypoints, objDescriptor);
 }
 
-bool SiftDetector::detect(cv::Mat& imageScene, int& x, int& y) {
+bool SiftDetector::detect(const cv::Mat& imageScene, int& x, int& y) {
   std::vector<int> bboxCentroid;
   if (findMatchingFeatures(imageScene, bboxCentroid)) {
     x = bboxCentroid[0];

@@ -21,7 +21,7 @@ class ObjectDetector {
    * @param int, y co-ordinate of the centre of the object
    * @return bool, to indicate whether success was returned
    */
-  virtual bool detect(cv::Mat& imageScene, int&, int&)= 0;
+  virtual bool detect(const cv::Mat& imageScene, int&, int&)= 0;
   /**
    * @brief virtual member function to set keypoints of the object to be detected
    * @param filename of the object to be detected

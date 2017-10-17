@@ -26,7 +26,7 @@ class SiftDetector : public ObjectDetector {
    * @param x - passed as reference x coordinate of bounding box
    * @param y - passed as reference y coordinate of bounding box
    */
-  bool detect(cv::Mat& imageScene, int& x, int& y);
+  bool detect(const cv::Mat& imageScene, int& x, int& y);
   /**
    * @brief setObjectKeypoints, overrides the base class method to
    * set keypoints of the know object to be detected
