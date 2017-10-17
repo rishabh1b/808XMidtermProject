@@ -10,6 +10,7 @@
 #include "VideoFrame.h"
 #include "ObjectDetector.h"
 #include "SiftDetector.h"
+#include "OutputWriter.h"
 #include <vector>
 
 class VisionManager {
@@ -30,7 +31,7 @@ class VisionManager {
   /**
    * @brief private constructor
    */
-  VisionManager();
+  VisionManager(bool showMatches = true, bool saveImages = true);
   /**
    * @brief private member variable of type VideoFrame which fetches next video frame
    */
@@ -41,10 +42,21 @@ class VisionManager {
    */
   std::unique_ptr<ObjectDetector> objDetector;
   /**
-   * @brief private member variable storing centroid positions as seen accross frames
+   * @brief private member variable storing centroid positions as seen across frames
    */
   std::vector<std::vector<int> > centroidPositions;
-
+  /**
+   * @brief private member variable to generate outputs
+   */
+  OutputWriter outputter;
+  /**
+   * @brief private member variable to control visualization
+   */
+  bool showMatches;
+  /**
+   * @brief private member variable to control saving output images
+   */
+  bool saveImages;
 };
 
 #endif /* INCLUDE_VISIONMANAGER_H_ */

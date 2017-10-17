@@ -68,7 +68,7 @@ class SiftDetector : public ObjectDetector {
   /**
    * @brief imgMatches private member variable to keep a track of the current frame being edited
    */
-  cv::Mat imgMatches;
+  cv::Mat imgMatches, currentEditedImage;
   bool showMatches, saveImages;
 };
 

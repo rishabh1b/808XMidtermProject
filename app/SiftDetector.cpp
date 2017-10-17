@@ -27,7 +27,7 @@ bool SiftDetector::detect(cv::Mat& imageScene, int& x, int& y) {
   if (findMatchingFeatures(imageScene, bboxCentroid)) {
     x = bboxCentroid[0];
     y = bboxCentroid[1];
-    cv::imshow(OPENCV_WINDOW, imgMatches);
+    cv::imshow(OPENCV_WINDOW, currentEditedImage);
     cv::waitKey(3);
     return true;
   } else
@@ -82,10 +82,6 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
   // Localize the object
   std::vector<cv::Point2f> obj;
   std::vector<cv::Point2f> scene;
-  drawMatches(imgObject, objKeypoints, imgScene, keypointsScene, goodMatches,
-              imgMatches, cv::Scalar::all(-1), cv::Scalar::all(-1),
-              std::vector<char>(),
-              cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
 
   for (size_t i = 0; i < goodMatches.size(); i++) {
     // Get the keypoints from the good matches
@@ -103,23 +99,43 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
   std::vector<cv::Point2f> sceneCorners(4);
   perspectiveTransform(objCorners, sceneCorners, H);
   // Draw lines between the corners (the mapped object in the scene - image_2 )
-  line(imgMatches, sceneCorners[0] + cv::Point2f(imgObject.cols, 0),
-       sceneCorners[1] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-       4);
-  line(imgMatches, sceneCorners[1] + cv::Point2f(imgObject.cols, 0),
-       sceneCorners[2] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-       4);
-  line(imgMatches, sceneCorners[2] + cv::Point2f(imgObject.cols, 0),
-       sceneCorners[3] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-       4);
-  line(imgMatches, sceneCorners[3] + cv::Point2f(imgObject.cols, 0),
-       sceneCorners[0] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
-       4);
+  cv::Mat newImage(imgScene.size(), CV_8UC3);
+  currentEditedImage = newImage;
+
+  // convert grayscale to color image
+  cv::cvtColor(imgScene, currentEditedImage, CV_GRAY2RGB);
+//  line(currentEditedImage, sceneCorners[0] + cv::Point2f(imgObject.cols, 0),
+//       sceneCorners[1] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
+//       4);
+//  line(currentEditedImage, sceneCorners[1] + cv::Point2f(imgObject.cols, 0),
+//       sceneCorners[2] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
+//       4);
+//  line(currentEditedImage, sceneCorners[2] + cv::Point2f(imgObject.cols, 0),
+//       sceneCorners[3] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
+//       4);
+//  line(currentEditedImage, sceneCorners[3] + cv::Point2f(imgObject.cols, 0),
+//       sceneCorners[0] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
+//       4);
+  line(currentEditedImage, sceneCorners[0], sceneCorners[1],
+       cv::Scalar(0, 255, 0), 4);
+  line(currentEditedImage, sceneCorners[1], sceneCorners[2],
+       cv::Scalar(0, 255, 0), 4);
+  line(currentEditedImage, sceneCorners[2], sceneCorners[3],
+       cv::Scalar(0, 255, 0), 4);
+  line(currentEditedImage, sceneCorners[3], sceneCorners[0],
+       cv::Scalar(0, 255, 0), 4);
 
   // Show detected matches
   if (showMatches) {
-    cv::imshow("Good Matches & Object detection", imgScene);
+    drawMatches(imgObject, objKeypoints, imgScene, keypointsScene, goodMatches,
+                imgMatches, cv::Scalar::all(-1), cv::Scalar::all(-1),
+                std::vector<char>(),
+                cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
+    cv::imshow("Good Matches & Object detection", imgMatches);
     cv::waitKey(3);
+  }
+  if (saveImages) {
+    processedImages.push_back(currentEditedImage);
   }
 
   return sceneCorners;

@@ -3,14 +3,16 @@
  * @author Rishabh Biyani(rishabh1b)
  * @copyright MIT license (c) 2017 Rishabh Biyani
  */
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/core/core.hpp>
 
 #ifndef INCLUDE_OBJECTDETECTOR_H_
 #define INCLUDE_OBJECTDETECTOR_H_
 
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/core.hpp>
+
 class ObjectDetector {
+  friend class VisionManager;
  public:
   /**
    * @brief pure virtual member detect function

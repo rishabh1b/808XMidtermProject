@@ -8,6 +8,7 @@ add_executable(
     ../app/VideoFrame.cpp
     ../app/SiftDetector.cpp
     ../app/ObjectDetector.cpp
+    ../app/OutputWriter.cpp
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 
