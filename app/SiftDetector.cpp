@@ -5,18 +5,20 @@
  */
 
 #include "SiftDetector.h"
+size_t MIN_MATCH_COUNT = 15;
 
-SiftDetector::SiftDetector(std::string imgObject, bool showMatches,
+SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
                            bool saveImages) {
 
   this->showMatches = showMatches;
   this->saveImages = saveImages;
-  setObjectKeypoints(imgObject);
   siftfeature = cv::xfeatures2d::SIFT::create();
+  setObjectKeypoints(imgObject);
 }
 
-void SiftDetector::setObjectKeypoints(std::string filename) {
-  imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
+void SiftDetector::setObjectKeypoints(cv::Mat imgObject) {
+  // imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
+  this->imgObject = imgObject;
   siftfeature->detect(imgObject, objKeypoints);
   siftfeature->compute(imgObject, objKeypoints, objDescriptor);
 }
@@ -26,6 +28,8 @@ bool SiftDetector::detect(cv::Mat& imageScene, int& x, int& y) {
   if (findMatchingFeatures(imageScene, bboxCentroid)) {
     x = bboxCentroid[0];
     y = bboxCentroid[1];
+    cv::imshow(OPENCV_WINDOW, imgMatches);
+    cv::waitKey(3);
     return true;
   } else
     return false;
@@ -55,7 +59,7 @@ bool SiftDetector::findMatchingFeatures(cv::Mat imgScene,
 
   for (size_t i = 0; i < matches.size(); i++) {
     if (matches[i].size() == 2
-        && (matches[i][0].distance < 0.7 * matches[i][1].distance))
+        && (matches[i][0].distance < 0.85 * matches[i][1].distance))
       goodMatches.push_back(matches[i][0]);
 
   }
@@ -75,9 +79,14 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
     const cv::Mat& imgScene, const std::vector<cv::KeyPoint>& keypointsScene,
     const std::vector<cv::DMatch>& goodMatches) {
   (this->imgMatches) = cv::Mat();
+  // imgMatches = cv::Mat::zeros( imgScene.size(), CV_8UC3 );
   // Localize the object
   std::vector<cv::Point2f> obj;
   std::vector<cv::Point2f> scene;
+  drawMatches(imgObject, objKeypoints, imgScene, keypointsScene,
+                  goodMatches, imgMatches, cv::Scalar::all(-1),
+                  cv::Scalar::all(-1), std::vector<char>(),
+                  cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
 
   for (size_t i = 0; i < goodMatches.size(); i++) {
     // Get the keypoints from the good matches
@@ -94,7 +103,6 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
   objCorners[3] = cvPoint(0, imgObject.rows);
   std::vector<cv::Point2f> sceneCorners(4);
   perspectiveTransform(objCorners, sceneCorners, H);
-
   // Draw lines between the corners (the mapped object in the scene - image_2 )
   line(imgMatches, sceneCorners[0] + cv::Point2f(imgObject.cols, 0),
        sceneCorners[1] + cv::Point2f(imgObject.cols, 0), cv::Scalar(0, 255, 0),
@@ -111,11 +119,8 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
 
   // Show detected matches
   if (showMatches) {
-    cv::drawMatches(imgObject, objKeypoints, imgScene, keypointsScene,
-                    goodMatches, (this->imgMatches), cv::Scalar::all(-1),
-                    cv::Scalar::all(-1), std::vector<char>(),
-                    cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
-    cv::imshow("Good Matches & Object detection", imgMatches);
+    cv::imshow("Good Matches & Object detection", imgScene);
+    cv::waitKey(3);
   }
 
   return sceneCorners;

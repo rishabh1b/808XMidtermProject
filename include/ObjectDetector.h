@@ -24,10 +24,8 @@ class ObjectDetector {
    * @brief virtual member function to set keypoints of the object to be detected
    * @param filename of the object to be detected
    */
-  virtual void setObjectKeypoints(std::string filename) {
-    return;
+  virtual void setObjectKeypoints(cv::Mat imgObject) = 0;
 
-  }
 
   virtual ~ObjectDetector() {
 

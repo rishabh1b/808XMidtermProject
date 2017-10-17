@@ -17,7 +17,7 @@ class VideoFrame {
    * @brief VideoFrame constructor
    * @param filename a string specifying path to the video file
    */
-  VideoFrame(std::string filename);
+  VideoFrame(std::string filename = "data/demo.mp4");
 
   /**
    * @brief Video Frame Destructor. It takes care

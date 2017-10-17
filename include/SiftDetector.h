@@ -15,7 +15,6 @@
 #include "ObjectDetector.h"
 
 static const std::string OPENCV_WINDOW = "Matches found";
-size_t MIN_MATCH_COUNT = 15;
 
 class SiftDetector : public ObjectDetector {
  public:
@@ -33,7 +32,7 @@ class SiftDetector : public ObjectDetector {
    * set keypoints of the know object to be detected
    * @param filename string specifying the file path
    */
-  void setObjectKeypoints(std::string filename);
+  void setObjectKeypoints(cv::Mat imgObject);
 
   /*
    * @brief SifDetector constructor
@@ -41,7 +40,7 @@ class SiftDetector : public ObjectDetector {
    * @param showMatches default argument to turn on or off the matches shown
    * @param saveImages default argument to control saving of image files processed by detector
    */
-  SiftDetector(std::string imgObject, bool showMatches = true, bool saveImages =
+  SiftDetector(cv::Mat imgObject, bool showMatches = false, bool saveImages =
                    true);
 
  private:
