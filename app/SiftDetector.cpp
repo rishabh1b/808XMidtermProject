@@ -51,7 +51,8 @@ bool SiftDetector::findMatchingFeatures(cv::Mat imgScene,
   cv::FlannBasedMatcher matcher;
   // TODO: Typdef this
   std::vector<std::vector<cv::DMatch> > matches;
-  matcher.knnMatch(objDescriptor, descriptorsScene, matches, 2);
+  if ( !descriptorsScene.empty() )
+    matcher.knnMatch(objDescriptor, descriptorsScene, matches, 2);
 
   // Draw only "good" matches (i.e. whose distance is less than 3*min_dist - Lowe's test )
   std::vector<cv::DMatch> goodMatches;
