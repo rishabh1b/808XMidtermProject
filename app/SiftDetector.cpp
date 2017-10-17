@@ -5,7 +5,7 @@
  */
 
 #include "SiftDetector.h"
-size_t MIN_MATCH_COUNT = 30;
+size_t MIN_MATCH_COUNT = 50;
 
 SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
                            bool saveImages) {
