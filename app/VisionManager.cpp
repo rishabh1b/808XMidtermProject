@@ -19,7 +19,8 @@ VisionManager::VisionManager() {
   objDetector = std::make_unique<SiftDetector>(imgObject);
 }
 
-void VisionManager::initDetection() {
+bool VisionManager::initDetection() {
+  bool flag = false;
   auto frame = framesGenerator.nextFrame();
   int x, y;
   std::vector<int> vec;
@@ -33,6 +34,8 @@ void VisionManager::initDetection() {
     }
     frame = framesGenerator.nextFrame();
   }
+  flag = true;
+  return flag;
 }
 
 VisionManager::~VisionManager() {

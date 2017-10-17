@@ -21,7 +21,7 @@ class VisionManager {
   /**
    * @brief public member function to initialize the object detection module.
    */
-  void initDetection();
+  bool initDetection();
   /**
    * @brief Vision Manager Destructor
    */
@@ -32,7 +32,7 @@ class VisionManager {
    */
   VisionManager();
   /**
-   * @brief private member variable of typr VideoFrame which fetches next video frame
+   * @brief private member variable of type VideoFrame which fetches next video frame
    */
   VideoFrame framesGenerator;
 
