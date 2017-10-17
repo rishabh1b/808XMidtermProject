@@ -66,7 +66,7 @@ class SiftDetector : public ObjectDetector {
    */
   cv::Ptr<cv::Feature2D> siftfeature;
   /**
-   * @brief currrentEditedImage private member variable to keep a track of the current image being edited
+   * @brief imgMatches private member variable to keep a track of the current frame being edited
    */
   cv::Mat imgMatches;
   bool showMatches, saveImages;

@@ -14,7 +14,7 @@
 
 
 int main() {
-  VisionManager visManager;
+  VisionManager& visManager = VisionManager::get();
   visManager.initDetection();
   return 0;
 }
