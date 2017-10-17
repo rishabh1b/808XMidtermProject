@@ -5,7 +5,7 @@
  */
 
 #include "SiftDetector.h"
-size_t MIN_MATCH_COUNT = 15;
+size_t MIN_MATCH_COUNT = 30;
 
 SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
                            bool saveImages) {
@@ -17,7 +17,6 @@ SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
 }
 
 void SiftDetector::setObjectKeypoints(cv::Mat imgObject) {
-  // imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
   this->imgObject = imgObject;
   siftfeature->detect(imgObject, objKeypoints);
   siftfeature->compute(imgObject, objKeypoints, objDescriptor);
@@ -83,10 +82,10 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
   // Localize the object
   std::vector<cv::Point2f> obj;
   std::vector<cv::Point2f> scene;
-  drawMatches(imgObject, objKeypoints, imgScene, keypointsScene,
-                  goodMatches, imgMatches, cv::Scalar::all(-1),
-                  cv::Scalar::all(-1), std::vector<char>(),
-                  cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
+  drawMatches(imgObject, objKeypoints, imgScene, keypointsScene, goodMatches,
+              imgMatches, cv::Scalar::all(-1), cv::Scalar::all(-1),
+              std::vector<char>(),
+              cv::DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS);
 
   for (size_t i = 0; i < goodMatches.size(); i++) {
     // Get the keypoints from the good matches

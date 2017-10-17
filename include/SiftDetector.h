@@ -23,8 +23,8 @@ class SiftDetector : public ObjectDetector {
    * It overrides the detect function in base class
    * @sa ObjectDetector
    * @param imageScene current frame as seen from the camera/videoclip
-   * @param x - passed as reference x co-ordinate of bounding box
-   * @param y - passed as reference y co-ordiante of bounding box
+   * @param x - passed as reference x coordinate of bounding box
+   * @param y - passed as reference y coordinate of bounding box
    */
   bool detect(cv::Mat& imageScene, int& x, int& y);
   /**

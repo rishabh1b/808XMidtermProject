@@ -7,17 +7,14 @@
 
 #include "VisionManager.h"
 
-
 VisionManager::VisionManager() {
   std::string filename = "data/cornflakesCropped.png";
   imgObject = cv::imread(filename, CV_LOAD_IMAGE_COLOR);
-  // framesGenerator = VideoFrame("data/demo.mp4");
-  objDetector = new SiftDetector(imgObject);
+  // objDetector = new SiftDetector(imgObject);
+  objDetector = std::make_unique<SiftDetector>(imgObject);
 }
 
-
 void VisionManager::initDetection() {
-  // objDetector->setObjectKeypoints(imgObject);
   cv::Mat frame = framesGenerator.nextFrame();
   int x, y;
   std::vector<int> vec;
@@ -33,5 +30,4 @@ void VisionManager::initDetection() {
 }
 
 VisionManager::~VisionManager() {
-  delete objDetector;
 }

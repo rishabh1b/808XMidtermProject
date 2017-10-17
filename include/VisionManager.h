@@ -1,8 +1,7 @@
 /*
- * VisionManager.h
- *
- *  Created on: Oct 16, 2017
- *      Author: viki
+ * @file VisionManager.h
+ * @author Rishabh Biyani (rishabh1b)
+ * @copyright MIT license (c) Rishabh Biyani 2017
  */
 
 #ifndef INCLUDE_VISIONMANAGER_H_
@@ -21,7 +20,7 @@ class VisionManager {
  private:
   VideoFrame framesGenerator;
   cv::Mat imgObject;
-  ObjectDetector* objDetector;
+  std::unique_ptr<ObjectDetector> objDetector;
   std::vector<std::vector<int> > centroidPositions;
 
 };
