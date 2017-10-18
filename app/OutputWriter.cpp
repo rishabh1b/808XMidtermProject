@@ -40,8 +40,7 @@ bool OutputWriter::writeOutputs(
 
   int counter = 0;
   std::stringstream ss;
-  std::string xstr, ystr, number;
-  std::string outputFilename;
+  std::string xstr, ystr;
   for (auto frame : processedImages) {
     auto currentCentre = centroidPositions[counter];
     numFrames++;
