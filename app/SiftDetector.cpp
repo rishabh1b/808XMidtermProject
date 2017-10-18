@@ -5,11 +5,10 @@
  */
 
 #include "SiftDetector.h"
-size_t MIN_MATCH_COUNT = 50;
+size_t MIN_MATCH_COUNT = 10;
 
 SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
                            bool saveImages) {
-
   this->showMatches = showMatches;
   this->saveImages = saveImages;
   siftfeature = cv::xfeatures2d::SIFT::create();
@@ -36,7 +35,6 @@ bool SiftDetector::detect(const cv::Mat& imageScene, int& x, int& y) {
 
 bool SiftDetector::findMatchingFeatures(cv::Mat imgScene,
                                         std::vector<int>& bboxCentroid) {
-
   // Step 1: Detect the keypoints in the scene using SIFT Detector
   std::vector<cv::KeyPoint> keypointsScene;
 
@@ -49,19 +47,17 @@ bool SiftDetector::findMatchingFeatures(cv::Mat imgScene,
 
   // Step 3: Matching descriptor vectors using FLANN matcher
   cv::FlannBasedMatcher matcher;
-  // TODO: Typdef this
   std::vector<std::vector<cv::DMatch> > matches;
-  if ( !descriptorsScene.empty() )
+  if (!descriptorsScene.empty())
     matcher.knnMatch(objDescriptor, descriptorsScene, matches, 2);
 
-  // Draw only "good" matches (i.e. whose distance is less than 3*min_dist - Lowe's test )
+  // Draw only "good" matches (i.e. distance < 0.75*min_dist - Lowe's test )
   std::vector<cv::DMatch> goodMatches;
 
   for (size_t i = 0; i < matches.size(); i++) {
     if (matches[i].size() == 2
-        && (matches[i][0].distance < 0.85 * matches[i][1].distance))
+        && (matches[i][0].distance < 0.75 * matches[i][1].distance))
       goodMatches.push_back(matches[i][0]);
-
   }
 
   if (goodMatches.size() > MIN_MATCH_COUNT) {
@@ -129,5 +125,4 @@ std::vector<cv::Point2f> SiftDetector::getBBox(
   }
 
   return sceneCorners;
-
 }

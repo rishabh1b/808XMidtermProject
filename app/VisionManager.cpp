@@ -18,7 +18,8 @@ VisionManager::VisionManager(bool showMatches, bool saveImages)
   std::string filename = "data/cornflakesCropped.png";
   auto imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
   // objDetector = new SiftDetector(imgObject);
-  objDetector = std::make_unique<SiftDetector>(imgObject, showMatches, saveImages);
+  objDetector = std::make_unique<SiftDetector>(imgObject, showMatches,
+                                               saveImages);
   framesGenerator.setFilename("data/demoshort.mp4");
   this->showMatches = showMatches;
   this->saveImages = saveImages;

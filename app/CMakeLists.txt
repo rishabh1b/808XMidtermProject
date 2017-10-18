@@ -1,4 +1,4 @@
-add_executable(shell-app main.cpp VideoFrame.cpp ObjectDetector.cpp SiftDetector.cpp VisionManager.cpp OutputWriter.cpp)
+add_executable(shell-app main.cpp VideoFrame.cpp SiftDetector.cpp VisionManager.cpp OutputWriter.cpp)
 
 find_package( OpenCV REQUIRED )
 

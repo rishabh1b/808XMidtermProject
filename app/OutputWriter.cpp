@@ -22,7 +22,6 @@ bool OutputWriter::writeCentroidValues(
 
   myfile.close();
   return true;
-
 }
 
 bool OutputWriter::writeFrames(const std::vector<cv::Mat>& processedImages) {
@@ -67,7 +66,6 @@ bool OutputWriter::writeOutputs(
     // cv::waitKey(30);
     imwrite(outputFilename.str(), frame);
     counter++;
-
   }
   return true;
 }

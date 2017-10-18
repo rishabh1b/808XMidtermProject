@@ -39,11 +39,13 @@ class OutputWriter {
   /**
    * Dump the centroid values onto the images
    */
-  bool writeOutputs(const std::vector<cv::Mat>& processedImages, const std::vector<std::vector<int> >& centroidPositions);
+  bool writeOutputs(const std::vector<cv::Mat>& processedImages,
+                    const std::vector<std::vector<int> >& centroidPositions);
   /**
    * Number of frame written
    */
   int numFrames;
+
  private:
   /**
    * @brief videoCreator is a private member variable which is openCV library cv::VideoWriter type object

@@ -19,29 +19,26 @@ cv::Mat VideoFrame::nextFrame() {
 }
 
 void VideoFrame::setFilename(std::string filename) {
-   this->vidcapture.release();
+  this->vidcapture.release();
   // Reinitialize
   vidcapture = cv::VideoCapture();
   this->filename = filename;
   vidcapture.open(filename);
-
 }
 
-void VideoFrame::test(){
+void VideoFrame::test() {
   vidcapture = cv::VideoCapture("demo.avi");
 
   cv::Mat frame;
-  vidcapture>> frame;
+  vidcapture >> frame;
 
-    if (!frame.data) {
-      printf("No image data \n");
-          return;
-    }
+  if (!frame.data) {
+    printf("No image data \n");
+    return;
+  }
 
+  cv::namedWindow("Display Image", CV_WINDOW_AUTOSIZE);
+  cv::imshow("Display Image", frame);
 
-    cv::namedWindow("Display Image", CV_WINDOW_AUTOSIZE);
-    cv::imshow("Display Image", frame);
-
-    cv::waitKey(0);
-
+  cv::waitKey(0);
 }

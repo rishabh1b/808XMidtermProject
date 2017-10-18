@@ -27,6 +27,7 @@ class VisionManager {
    * @brief Vision Manager Destructor
    */
   ~VisionManager();
+
  private:
   /**
    * @brief private constructor

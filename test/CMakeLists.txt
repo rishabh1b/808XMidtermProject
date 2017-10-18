@@ -7,7 +7,6 @@ add_executable(
     ../app/VisionManager.cpp
     ../app/VideoFrame.cpp
     ../app/SiftDetector.cpp
-    ../app/ObjectDetector.cpp
     ../app/OutputWriter.cpp
 )
 

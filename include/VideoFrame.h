@@ -11,7 +11,6 @@
 #define INCLUDE_VIDEOFRAME_H_
 
 class VideoFrame {
-
  public:
   /**
    * @brief VideoFrame constructor
@@ -54,7 +53,6 @@ class VideoFrame {
    *filename of the video clip currently being parsed
    */
   std::string filename;
-
 };
 
 #endif /* INCLUDE_VIDEOFRAME_H_ */

@@ -30,8 +30,8 @@ class ObjectDetector {
 
 
   virtual ~ObjectDetector() {
-
   }
+
  protected:
   /**
    * @brief protected member function to calculate the centroid out of the bounding box corners
@@ -64,7 +64,6 @@ class ObjectDetector {
    * @brief protected variable storing imgObject to be detected under consideration
    */
   cv::Mat imgObject;
-
 };
 
 #endif /* INCLUDE_OBJECTDETECTOR_H_ */
