@@ -1,0 +1,72 @@
+\hypertarget{class_sift_detector}{}\section{Sift\+Detector Class Reference}
+\label{class_sift_detector}\index{Sift\+Detector@{Sift\+Detector}}
+
+
+Inherits \hyperlink{class_object_detector}{Object\+Detector}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_sift_detector_a1a4d71d935e936fff28a75bf542e1d11}{detect} (const cv\+::\+Mat \&image\+Scene)
+\begin{DoxyCompactList}\small\item\em detect function checks whether similar object is located in scene. It overrides the detect function in base class \end{DoxyCompactList}\item 
+void \hyperlink{class_sift_detector_ae8da1b225d306360f5ca309dfc2a5442}{set\+Object\+Keypoints} (cv\+::\+Mat \hyperlink{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}{img\+Object})
+\begin{DoxyCompactList}\small\item\em set\+Object\+Keypoints, overrides the base class method to set keypoints of the know object to be detected \end{DoxyCompactList}\item 
+{\bfseries Sift\+Detector} (cv\+::\+Mat \hyperlink{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}{img\+Object}, bool show\+Matches=false, bool save\+Images=true)\hypertarget{class_sift_detector_a395b1956c911fa0b840f2a3fc353a422}{}\label{class_sift_detector_a395b1956c911fa0b840f2a3fc353a422}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{Sift\+Detector@{Sift\+Detector}!detect@{detect}}
+\index{detect@{detect}!Sift\+Detector@{Sift\+Detector}}
+\subsubsection[{\texorpdfstring{detect(const cv\+::\+Mat \&image\+Scene)}{detect(const cv::Mat &imageScene)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Sift\+Detector\+::detect (
+\begin{DoxyParamCaption}
+\item[{const cv\+::\+Mat \&}]{image\+Scene}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sift_detector_a1a4d71d935e936fff28a75bf542e1d11}{}\label{class_sift_detector_a1a4d71d935e936fff28a75bf542e1d11}
+
+
+detect function checks whether similar object is located in scene. It overrides the detect function in base class 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_object_detector}{Object\+Detector} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em image\+Scene} & current frame as seen from the camera/videoclip \\
+\hline
+{\em x} & -\/ passed as reference x coordinate of bounding box \\
+\hline
+{\em y} & -\/ passed as reference y coordinate of bounding box \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_object_detector_a113a9a3336d0764c1afe5166264135c0}{Object\+Detector}.
+
+\index{Sift\+Detector@{Sift\+Detector}!set\+Object\+Keypoints@{set\+Object\+Keypoints}}
+\index{set\+Object\+Keypoints@{set\+Object\+Keypoints}!Sift\+Detector@{Sift\+Detector}}
+\subsubsection[{\texorpdfstring{set\+Object\+Keypoints(cv\+::\+Mat img\+Object)}{setObjectKeypoints(cv::Mat imgObject)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sift\+Detector\+::set\+Object\+Keypoints (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{img\+Object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sift_detector_ae8da1b225d306360f5ca309dfc2a5442}{}\label{class_sift_detector_ae8da1b225d306360f5ca309dfc2a5442}
+
+
+set\+Object\+Keypoints, overrides the base class method to set keypoints of the know object to be detected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & string specifying the file path \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_object_detector_a0d91abdee4036427163e2fb9c1018cd8}{Object\+Detector}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/viki/808\+X\+Hw/midtermproject/cpp-\/boilerplate/include/Sift\+Detector.\+h\end{DoxyCompactItemize}

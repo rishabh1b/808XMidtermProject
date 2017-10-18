@@ -1,0 +1,14 @@
+Done processing ./include/ObjectDetector.h
+Done processing ./include/SiftDetector.h
+Done processing ./include/VisionManager.h
+Done processing ./include/VideoFrame.h
+Done processing ./include/OutputWriter.h
+Done processing ./test/main.cpp
+Done processing ./test/ObjectDetection.cpp
+Done processing ./app/main.cpp
+Done processing ./app/OutputWriter.cpp
+Done processing ./app/SiftDetector.cpp
+Done processing ./app/VisionManager.cpp
+Done processing ./app/VideoFrame.cpp
+Total errors found: 0
+

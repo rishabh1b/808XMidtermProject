@@ -1,0 +1,130 @@
+\hypertarget{class_object_detector}{}\section{Object\+Detector Class Reference}
+\label{class_object_detector}\index{Object\+Detector@{Object\+Detector}}
+
+
+Inherited by \hyperlink{class_sift_detector}{Sift\+Detector}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_object_detector_a113a9a3336d0764c1afe5166264135c0}{detect} (const cv\+::\+Mat \&image\+Scene)=0
+\begin{DoxyCompactList}\small\item\em pure virtual member detect function \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_object_detector_a0d91abdee4036427163e2fb9c1018cd8}{set\+Object\+Keypoints} (cv\+::\+Mat \hyperlink{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}{img\+Object})=0
+\begin{DoxyCompactList}\small\item\em virtual member function to set keypoints of the object to be detected \end{DoxyCompactList}\item 
+int \hyperlink{class_object_detector_afa238f454f2ac69786d97868ebba218b}{getX} ()
+\begin{DoxyCompactList}\small\item\em Getter for Centroid position x. \end{DoxyCompactList}\item 
+int \hyperlink{class_object_detector_a92fd9162171858c735136118b4bb91fe}{getY} ()
+\begin{DoxyCompactList}\small\item\em Getter for centroid position y. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_object_detector_a221c0d1fef75a740dc2657ac8803297f}{centX}\hypertarget{class_object_detector_a221c0d1fef75a740dc2657ac8803297f}{}\label{class_object_detector_a221c0d1fef75a740dc2657ac8803297f}
+
+\begin{DoxyCompactList}\small\item\em protected variable centre x \end{DoxyCompactList}\item 
+int \hyperlink{class_object_detector_a90d7e3183d37245a53874abc1a8700b5}{centY}\hypertarget{class_object_detector_a90d7e3183d37245a53874abc1a8700b5}{}\label{class_object_detector_a90d7e3183d37245a53874abc1a8700b5}
+
+\begin{DoxyCompactList}\small\item\em protected variable centre y \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Mat $>$ \hyperlink{class_object_detector_af1de8ce9d86322d4fe59f3fb07fefee8}{processed\+Images}\hypertarget{class_object_detector_af1de8ce9d86322d4fe59f3fb07fefee8}{}\label{class_object_detector_af1de8ce9d86322d4fe59f3fb07fefee8}
+
+\begin{DoxyCompactList}\small\item\em protected variable storing processed outputs \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Key\+Point $>$ \hyperlink{class_object_detector_ab7c97164039b016adf7aec44fd42f6fa}{obj\+Keypoints}\hypertarget{class_object_detector_ab7c97164039b016adf7aec44fd42f6fa}{}\label{class_object_detector_ab7c97164039b016adf7aec44fd42f6fa}
+
+\begin{DoxyCompactList}\small\item\em protected variable storing keypoints from the object to be detected \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{class_object_detector_a2fe4da67e069ee00624cd2ba7b5f553c}{obj\+Descriptor}\hypertarget{class_object_detector_a2fe4da67e069ee00624cd2ba7b5f553c}{}\label{class_object_detector_a2fe4da67e069ee00624cd2ba7b5f553c}
+
+\begin{DoxyCompactList}\small\item\em protected variable obj\+Descriptor storing different descriptor of the interesting keypoints \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}{img\+Object}\hypertarget{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}{}\label{class_object_detector_a61777cf5e76f8ba8e2d605b63c7bb2b3}
+
+\begin{DoxyCompactList}\small\item\em protected variable storing img\+Object to be detected under consideration \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_object_detector_a062cdd3d6705c52ae81105065d32bf92}{bbox\+Centroid}\hypertarget{class_object_detector_a062cdd3d6705c52ae81105065d32bf92}{}\label{class_object_detector_a062cdd3d6705c52ae81105065d32bf92}
+
+\begin{DoxyCompactList}\small\item\em centroid of the detected object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Vision\+Manager}\hypertarget{class_object_detector_a8cd1df064842e61a584f7d93e1c5158b}{}\label{class_object_detector_a8cd1df064842e61a584f7d93e1c5158b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Object\+Detector@{Object\+Detector}!detect@{detect}}
+\index{detect@{detect}!Object\+Detector@{Object\+Detector}}
+\subsubsection[{\texorpdfstring{detect(const cv\+::\+Mat \&image\+Scene)=0}{detect(const cv::Mat &imageScene)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Object\+Detector\+::detect (
+\begin{DoxyParamCaption}
+\item[{const cv\+::\+Mat \&}]{image\+Scene}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_object_detector_a113a9a3336d0764c1afe5166264135c0}{}\label{class_object_detector_a113a9a3336d0764c1afe5166264135c0}
+
+
+pure virtual member detect function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+Scene} & a cv\+::\+Mat object \\
+\hline
+{\em int,x} & co-\/ordinate of the centre of the object \\
+\hline
+{\em int,y} & co-\/ordinate of the centre of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, to indicate whether success was returned 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_sift_detector_a1a4d71d935e936fff28a75bf542e1d11}{Sift\+Detector}.
+
+\index{Object\+Detector@{Object\+Detector}!getX@{getX}}
+\index{getX@{getX}!Object\+Detector@{Object\+Detector}}
+\subsubsection[{\texorpdfstring{get\+X()}{getX()}}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Detector\+::getX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_object_detector_afa238f454f2ac69786d97868ebba218b}{}\label{class_object_detector_afa238f454f2ac69786d97868ebba218b}
+
+
+Getter for Centroid position x. 
+
+\begin{DoxyReturn}{Returns}
+integer value x in pixels of the centre position 
+\end{DoxyReturn}
+\index{Object\+Detector@{Object\+Detector}!getY@{getY}}
+\index{getY@{getY}!Object\+Detector@{Object\+Detector}}
+\subsubsection[{\texorpdfstring{get\+Y()}{getY()}}]{\setlength{\rightskip}{0pt plus 5cm}int Object\+Detector\+::getY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_object_detector_a92fd9162171858c735136118b4bb91fe}{}\label{class_object_detector_a92fd9162171858c735136118b4bb91fe}
+
+
+Getter for centroid position y. 
+
+\begin{DoxyReturn}{Returns}
+integer value y in pixels of the centre position 
+\end{DoxyReturn}
+\index{Object\+Detector@{Object\+Detector}!set\+Object\+Keypoints@{set\+Object\+Keypoints}}
+\index{set\+Object\+Keypoints@{set\+Object\+Keypoints}!Object\+Detector@{Object\+Detector}}
+\subsubsection[{\texorpdfstring{set\+Object\+Keypoints(cv\+::\+Mat img\+Object)=0}{setObjectKeypoints(cv::Mat imgObject)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Object\+Detector\+::set\+Object\+Keypoints (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{img\+Object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_object_detector_a0d91abdee4036427163e2fb9c1018cd8}{}\label{class_object_detector_a0d91abdee4036427163e2fb9c1018cd8}
+
+
+virtual member function to set keypoints of the object to be detected 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & of the object to be detected \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_sift_detector_ae8da1b225d306360f5ca309dfc2a5442}{Sift\+Detector}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/viki/808\+X\+Hw/midtermproject/cpp-\/boilerplate/include/Object\+Detector.\+h\end{DoxyCompactItemize}

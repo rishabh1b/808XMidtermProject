@@ -1,0 +1,97 @@
+\hypertarget{class_output_writer}{}\section{Output\+Writer Class Reference}
+\label{class_output_writer}\index{Output\+Writer@{Output\+Writer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_output_writer_a607817b27493dee2a2e91f583de76fc5}{Output\+Writer} (std\+::string output\+File\+Name=\char`\"{}../Outputs/outputvideo.\+avi\char`\"{})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_output_writer}{Output\+Writer} Class Constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_output_writer_a6312f9a1a2cc0168b8d10ffa3f545d6a}{write\+Centroid\+Values} (const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&centroid\+Positions)
+\begin{DoxyCompactList}\small\item\em write\+Centroid\+Values dumps centroid positions to a file \end{DoxyCompactList}\item 
+bool \hyperlink{class_output_writer_ae515fcd72bfbc176e64ddb7c56b1823a}{write\+Frames} (const std\+::vector$<$ cv\+::\+Mat $>$ \&processed\+Images)
+\begin{DoxyCompactList}\small\item\em write\+Frames takes images and creates a Video File \end{DoxyCompactList}\item 
+bool \hyperlink{class_output_writer_a71d6d480712ca5a2dc777acccffddc02}{write\+Outputs} (const std\+::vector$<$ cv\+::\+Mat $>$ \&processed\+Images, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&centroid\+Positions)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_output_writer_a2e2c9edadbe0888c1ab7ae585c9ce54a}{num\+Frames}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Output\+Writer@{Output\+Writer}!Output\+Writer@{Output\+Writer}}
+\index{Output\+Writer@{Output\+Writer}!Output\+Writer@{Output\+Writer}}
+\subsubsection[{\texorpdfstring{Output\+Writer(std\+::string output\+File\+Name=""../\+Outputs/outputvideo.\+avi"")}{OutputWriter(std::string outputFileName="../Outputs/outputvideo.avi")}}]{\setlength{\rightskip}{0pt plus 5cm}Output\+Writer\+::\+Output\+Writer (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{output\+File\+Name = {\ttfamily \char`\"{}../Outputs/outputvideo.avi\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{class_output_writer_a607817b27493dee2a2e91f583de76fc5}{}\label{class_output_writer_a607817b27493dee2a2e91f583de76fc5}
+
+
+\hyperlink{class_output_writer}{Output\+Writer} Class Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+File\+Name} & -\/ filename of the \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Output\+Writer@{Output\+Writer}!write\+Centroid\+Values@{write\+Centroid\+Values}}
+\index{write\+Centroid\+Values@{write\+Centroid\+Values}!Output\+Writer@{Output\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Centroid\+Values(const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&centroid\+Positions)}{writeCentroidValues(const std::vector< std::vector< int > > &centroidPositions)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Output\+Writer\+::write\+Centroid\+Values (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{centroid\+Positions}
+\end{DoxyParamCaption}
+)}\hypertarget{class_output_writer_a6312f9a1a2cc0168b8d10ffa3f545d6a}{}\label{class_output_writer_a6312f9a1a2cc0168b8d10ffa3f545d6a}
+
+
+write\+Centroid\+Values dumps centroid positions to a file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & vector of vectors taken as constant reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a boolean to indicate success 
+\end{DoxyReturn}
+\index{Output\+Writer@{Output\+Writer}!write\+Frames@{write\+Frames}}
+\index{write\+Frames@{write\+Frames}!Output\+Writer@{Output\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Frames(const std\+::vector$<$ cv\+::\+Mat $>$ \&processed\+Images)}{writeFrames(const std::vector< cv::Mat > &processedImages)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Output\+Writer\+::write\+Frames (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{processed\+Images}
+\end{DoxyParamCaption}
+)}\hypertarget{class_output_writer_ae515fcd72bfbc176e64ddb7c56b1823a}{}\label{class_output_writer_ae515fcd72bfbc176e64ddb7c56b1823a}
+
+
+write\+Frames takes images and creates a Video File 
+
+
+\begin{DoxyParams}{Parameters}
+{\em processed\+Images} & are the output images from object detector taken as constant reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a boolean to indicate success 
+\end{DoxyReturn}
+\index{Output\+Writer@{Output\+Writer}!write\+Outputs@{write\+Outputs}}
+\index{write\+Outputs@{write\+Outputs}!Output\+Writer@{Output\+Writer}}
+\subsubsection[{\texorpdfstring{write\+Outputs(const std\+::vector$<$ cv\+::\+Mat $>$ \&processed\+Images, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&centroid\+Positions)}{writeOutputs(const std::vector< cv::Mat > &processedImages, const std::vector< std::vector< int > > &centroidPositions)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Output\+Writer\+::write\+Outputs (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ cv\+::\+Mat $>$ \&}]{processed\+Images, }
+\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{centroid\+Positions}
+\end{DoxyParamCaption}
+)}\hypertarget{class_output_writer_a71d6d480712ca5a2dc777acccffddc02}{}\label{class_output_writer_a71d6d480712ca5a2dc777acccffddc02}
+Dump the centroid values onto the images 
+
+\subsection{Member Data Documentation}
+\index{Output\+Writer@{Output\+Writer}!num\+Frames@{num\+Frames}}
+\index{num\+Frames@{num\+Frames}!Output\+Writer@{Output\+Writer}}
+\subsubsection[{\texorpdfstring{num\+Frames}{numFrames}}]{\setlength{\rightskip}{0pt plus 5cm}int Output\+Writer\+::num\+Frames}\hypertarget{class_output_writer_a2e2c9edadbe0888c1ab7ae585c9ce54a}{}\label{class_output_writer_a2e2c9edadbe0888c1ab7ae585c9ce54a}
+Number of frame written 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/viki/808\+X\+Hw/midtermproject/cpp-\/boilerplate/include/Output\+Writer.\+h\end{DoxyCompactItemize}
