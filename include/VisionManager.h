@@ -33,7 +33,7 @@ class VisionManager {
   /**
    * @brief private constructor
    */
-  VisionManager(bool showMatches = true, bool saveImages = true);
+  explicit VisionManager(bool showMatches = true, bool saveImages = true);
   /**
    * @brief private member variable of type VideoFrame which fetches next video frame
    */

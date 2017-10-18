@@ -1,8 +1,7 @@
 /*
- * VisionManager.cpp
- *
- *  Created on: Oct 16, 2017
- *      Author: viki
+ * @file VisionManager.cpp which manages the perception module
+ * @author Rishabh Biyani(rishabh1b)
+ * @copyright MIT license (c) 2017 Rishabh Biyani
  */
 
 #include "VisionManager.h"

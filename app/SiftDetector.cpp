@@ -30,11 +30,12 @@ bool SiftDetector::detect(const cv::Mat& imageScene) {
     cv::imshow(OPENCV_WINDOW, currentEditedImage);
     cv::waitKey(3);
     return true;
-  } else
+  } else {
     return false;
+  }
 }
 
-bool SiftDetector::findMatchingFeatures(cv::Mat imgScene){
+bool SiftDetector::findMatchingFeatures(cv::Mat imgScene) {
   // Step 1: Detect the keypoints in the scene using SIFT Detector
   std::vector<cv::KeyPoint> keypointsScene;
 

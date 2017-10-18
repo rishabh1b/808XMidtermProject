@@ -21,7 +21,8 @@ class OutputWriter {
    * @brief OutputWriter Class Constructor
    * @param outputFileName - filename of the
    */
-  OutputWriter(std::string outputFileName = "../Outputs/outputvideo.avi");
+  explicit OutputWriter(std::string outputFileName =
+      "../Outputs/outputvideo.avi");
   /**
    * @brief writeCentroidValues dumps centroid positions to a file
    * @param a vector of vectors taken as constant reference

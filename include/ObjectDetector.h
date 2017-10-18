@@ -37,14 +37,14 @@ class ObjectDetector {
    * @brief Getter for Centroid position x
    * @return integer value x in pixels of the centre position
    */
-  int getX(){
+  int getX() {
     return centX;
   }
   /**
    * @brief Getter for centroid position y
    * @return integer value y in pixels of the centre position
    */
-  int getY(){
+  int getY() {
     return centY;
   }
 

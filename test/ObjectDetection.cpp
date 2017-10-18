@@ -30,3 +30,4 @@ TEST(DetectionTest, falsePositive) {
       imgObject, false, false);
   EXPECT_FALSE(detector->detect(falseImage));
 }
+
