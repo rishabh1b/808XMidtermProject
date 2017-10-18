@@ -6,7 +6,8 @@
 ## Overview
 
 A C++ project to segment a know box and return its centroid position. This project was implemented to learn about the software evolution process as part of the course ENPM808X at University of Maryland. Specifically, this project is being implemented in a one week sprint following SIP (Solo Iterative Process). The details about my experiments with this methodology is shown here at this link - 
-[SIP](https://docs.google.com/spreadsheets/d/1hU2-KZ__otXOmWfRZpa-UvZP8Up15Qzi-F7m8GVSgRQ/edit?usp=sharing)
+[SIP](https://docs.google.com/spreadsheets/d/1hU2-KZ__otXOmWfRZpa-UvZP8Up15Qzi-F7m8GVSgRQ/edit?usp=sharing).
+
 The project was motivated on a context that the component is being developed for a imaginary Robotics company - "Acme Robotics". My focus was on the perception module wherin I was developing a modular component to detect a *known* object from the environment. I chose household environment and a corn-flakes box for segmentation. Firstly, Object detection in principle is a combination of *Object Recognition* and then finding the actual location of this object. For Object Recognition part I used SIFT features and homography technique to get hold of the bounding box across the object. Then I find the centroid of the object by taking midpoint of these corners. 
 
 The output is illustrated in the animation below - 
