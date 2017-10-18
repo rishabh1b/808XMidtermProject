@@ -13,8 +13,10 @@
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
 #include "ObjectDetector.h"
+#include <string>
+#include <vector>
 
-static const std::string OPENCV_WINDOW = "Matches found";
+static const char OPENCV_WINDOW[] = "Matches found";
 
 class SiftDetector : public ObjectDetector {
  public:
@@ -26,7 +28,7 @@ class SiftDetector : public ObjectDetector {
    * @param x - passed as reference x coordinate of bounding box
    * @param y - passed as reference y coordinate of bounding box
    */
-  bool detect(const cv::Mat& imageScene, int& x, int& y);
+  bool detect(const cv::Mat& imageScene);
   /**
    * @brief setObjectKeypoints, overrides the base class method to
    * set keypoints of the know object to be detected
@@ -60,7 +62,7 @@ class SiftDetector : public ObjectDetector {
    * @param bboxcentroid passed as a reference which gets populated with corners of the object in scene
    * @return boolean indicating whether find was successfull
    */
-  bool findMatchingFeatures(cv::Mat imgscene, std::vector<int>& bboxcentroid);
+  bool findMatchingFeatures(cv::Mat imgscene);
   /**
    * @brief siftfeature private member variable to detect sift features
    */

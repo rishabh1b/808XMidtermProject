@@ -10,6 +10,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/core.hpp>
+#include <vector>
 
 class ObjectDetector {
   friend class VisionManager;
@@ -21,7 +22,7 @@ class ObjectDetector {
    * @param int, y co-ordinate of the centre of the object
    * @return bool, to indicate whether success was returned
    */
-  virtual bool detect(const cv::Mat& imageScene, int&, int&)= 0;
+  virtual bool detect(const cv::Mat& imageScene)= 0;
   /**
    * @brief virtual member function to set keypoints of the object to be detected
    * @param filename of the object to be detected
@@ -32,14 +33,22 @@ class ObjectDetector {
   virtual ~ObjectDetector() {
   }
 
- protected:
   /**
-   * @brief protected member function to calculate the centroid out of the bounding box corners
-   * @param int, x co-ordinate of the centre of the object
-   * @param int, y co-ordinate of the centre of the object
+   * @brief Getter for Centroid position x
+   * @return integer value x in pixels of the centre position
    */
-  void calculateCentroid(const std::vector<cv::Point2f>& bboxCorners, int& x,
-                         int& y);
+  int getX(){
+    return centX;
+  }
+  /**
+   * @brief Getter for centroid position y
+   * @return integer value y in pixels of the centre position
+   */
+  int getY(){
+    return centY;
+  }
+
+ protected:
   /**
    * @brief protected variable centre x
    */
@@ -64,6 +73,10 @@ class ObjectDetector {
    * @brief protected variable storing imgObject to be detected under consideration
    */
   cv::Mat imgObject;
+  /**
+   * @brief centroid of the detected object
+   */
+  std::vector<int> bboxCentroid;
 };
 
 #endif /* INCLUDE_OBJECTDETECTOR_H_ */

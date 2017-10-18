@@ -12,6 +12,7 @@
 #include "SiftDetector.h"
 #include "OutputWriter.h"
 #include <vector>
+#include <memory>
 
 class VisionManager {
  public:

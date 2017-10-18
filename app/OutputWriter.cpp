@@ -5,6 +5,8 @@
  */
 
 #include "OutputWriter.h"
+#include <string>
+#include <vector>
 
 OutputWriter::OutputWriter(std::string outputFileName)
     : numFrames(0),

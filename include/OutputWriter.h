@@ -6,14 +6,14 @@
 
 #ifndef INCLUDE_OUTPUTWRITER_H_
 #define INCLUDE_OUTPUTWRITER_H_
+#include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/core.hpp>
 #include <string>
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "opencv2/opencv.hpp"
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/core/core.hpp>
 
 class OutputWriter {
  public:

@@ -6,6 +6,9 @@
  */
 
 #include "VisionManager.h"
+#include <memory>
+#include <string>
+#include <vector>
 
 VisionManager& VisionManager::get() {
   static VisionManager visManager;
@@ -28,13 +31,12 @@ VisionManager::VisionManager(bool showMatches, bool saveImages)
 bool VisionManager::initDetection() {
   bool flag = false;
   auto frame = framesGenerator.nextFrame();
-  int x, y;
   std::vector<int> vec;
   while (frame.data) {
     cv::cvtColor(frame, frame, cv::COLOR_RGB2GRAY);
-    if (objDetector->detect(frame, x, y)) {
-      vec.push_back(x);
-      vec.push_back(y);
+    if (objDetector->detect(frame)) {
+      vec.push_back(objDetector->getX());
+      vec.push_back(objDetector->getY());
       centroidPositions.push_back(vec);
       vec.clear();
     }

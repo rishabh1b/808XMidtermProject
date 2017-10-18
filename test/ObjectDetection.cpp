@@ -4,9 +4,10 @@
  * @copyright MIT license (c) 2017 Rishabh Biyani
  */
 
+#include "VisionManager.h"
 #include <gtest/gtest.h>
 #include <memory>
-#include "VisionManager.h"
+#include <string>
 
 /**
  * @brief Test the Entire Pipeline
@@ -25,8 +26,7 @@ TEST(DetectionTest, falsePositive) {
   auto imgObject = cv::imread(filename, CV_LOAD_IMAGE_GRAYSCALE);
   auto falseImage = cv::imread("data/lenna_false_positive.jpg",
                                CV_LOAD_IMAGE_GRAYSCALE);
-  int x, y;
   std::unique_ptr<ObjectDetector> detector = std::make_unique<SiftDetector>(
       imgObject, false, false);
-  EXPECT_FALSE(detector->detect(falseImage, x, y));
+  EXPECT_FALSE(detector->detect(falseImage));
 }

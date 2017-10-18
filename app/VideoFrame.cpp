@@ -5,6 +5,7 @@
  */
 
 #include "VideoFrame.h"
+#include <string>
 
 VideoFrame::VideoFrame(std::string filename) {
   vidcapture = cv::VideoCapture();

@@ -5,6 +5,7 @@
  */
 
 #include "SiftDetector.h"
+#include <vector>
 size_t MIN_MATCH_COUNT = 10;
 
 SiftDetector::SiftDetector(cv::Mat imgObject, bool showMatches,
@@ -21,11 +22,11 @@ void SiftDetector::setObjectKeypoints(cv::Mat imgObject) {
   siftfeature->compute(imgObject, objKeypoints, objDescriptor);
 }
 
-bool SiftDetector::detect(const cv::Mat& imageScene, int& x, int& y) {
-  std::vector<int> bboxCentroid;
-  if (findMatchingFeatures(imageScene, bboxCentroid)) {
-    x = bboxCentroid[0];
-    y = bboxCentroid[1];
+bool SiftDetector::detect(const cv::Mat& imageScene) {
+  if (findMatchingFeatures(imageScene)) {
+    centX = bboxCentroid[0];
+    centY = bboxCentroid[1];
+    bboxCentroid.clear();
     cv::imshow(OPENCV_WINDOW, currentEditedImage);
     cv::waitKey(3);
     return true;
@@ -33,8 +34,7 @@ bool SiftDetector::detect(const cv::Mat& imageScene, int& x, int& y) {
     return false;
 }
 
-bool SiftDetector::findMatchingFeatures(cv::Mat imgScene,
-                                        std::vector<int>& bboxCentroid) {
+bool SiftDetector::findMatchingFeatures(cv::Mat imgScene){
   // Step 1: Detect the keypoints in the scene using SIFT Detector
   std::vector<cv::KeyPoint> keypointsScene;
 
